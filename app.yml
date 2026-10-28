@@ -1,0 +1,127 @@
+config:
+  hyperparams:
+  - default: '3'
+    description: Number of clusters.
+    maxValue: 200.0
+    minValue: 2.0
+    name: n_clusters
+    options: []
+    pattern: null
+    type: INTEGER
+  - default: rbf
+    description: Affinity strategy. 'precomputed' expects an affinity matrix as input.
+    maxValue: null
+    minValue: null
+    name: affinity
+    options:
+    - rbf
+    - nearest_neighbors
+    - precomputed
+    pattern: null
+    type: CATEGORICAL
+  - default: '1.0'
+    description: Gamma for RBF kernel (only used if affinity='rbf').
+    maxValue: null
+    minValue: 0.0
+    name: gamma
+    options: []
+    pattern: null
+    type: FLOAT
+  - default: '10'
+    description: Number of neighbors for the k-NN graph (only used if affinity='nearest_neighbors').
+    maxValue: 10000.0
+    minValue: 1.0
+    name: n_neighbors
+    options: []
+    pattern: null
+    type: INTEGER
+  - default: kmeans
+    description: Label assignment strategy in embedding space.
+    maxValue: null
+    minValue: null
+    name: assign_labels
+    options:
+    - kmeans
+    - discretize
+    pattern: null
+    type: CATEGORICAL
+  - default: '10'
+    description: Number of k-means initializations (used when assign_labels='kmeans').
+    maxValue: 100.0
+    minValue: 1.0
+    name: n_init
+    options: []
+    pattern: null
+    type: INTEGER
+  - default: arpack
+    description: Eigen solver. 'amg' requires pyamg to be installed.
+    maxValue: null
+    minValue: null
+    name: eigen_solver
+    options:
+    - arpack
+    - lobpcg
+    - amg
+    pattern: null
+    type: CATEGORICAL
+  - default: '42'
+    description: Random seed for reproducibility.
+    maxValue: 2147483647.0
+    minValue: 0.0
+    name: random_state
+    options: []
+    pattern: null
+    type: INTEGER
+  - default: '1'
+    description: Standardize features to zero mean / unit variance before clustering
+      (recommended). Ignored if affinity='precomputed'.
+    maxValue: null
+    minValue: null
+    name: standardize
+    options: []
+    pattern: null
+    type: BOOLEAN
+  input:
+  - delimiter: null
+    description: Tabular feature matrix (or affinity matrix if affinity='precomputed')
+    hasHeader: true
+    maxValue: null
+    minValue: null
+    name: features
+    required: true
+    shape: null
+    tabularSchema:
+      allowOnlyNumbers: null
+      prohibitedNulls: true
+      nullPolicy: null
+    type: CSV
+  output:
+  - delimiter: null
+    description: Cluster assignments per sample
+    hasHeader: null
+    maxValue: null
+    minValue: null
+    name: labels
+    required: false
+    shape: null
+    tabularSchema: null
+    type: CSV
+  - delimiter: null
+    description: HTML report with parameters, affinity settings, eigen solver and
+      cluster-size stats.
+    hasHeader: null
+    maxValue: null
+    minValue: null
+    name: report
+    required: false
+    shape: null
+    tabularSchema: null
+    type: HTML
+info:
+  name: tool-spectral-clustering
+  slug: tool-spectral-clustering
+  type: SELF_LEARNED
+  sourceUrl: https://github.com/FedLearnNet/tool-spectral-clustering
+  shortDescription: Runs spectral clustering on numeric tables and exports sample
+    labels and an interactive cluster visualization.
+  longDescription: null
