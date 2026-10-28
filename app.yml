@@ -118,8 +118,8 @@ config:
     tabularSchema: null
     type: HTML
 info:
-  name: tool-spectral-clustering
-  slug: tool-spectral-clustering
+  name: spectral-clustering
+  slug: spectral-clustering
   type: SELF_LEARNED
   sourceUrl: https://github.com/FedLearnNet/tool-spectral-clustering
   shortDescription: Runs spectral clustering on numeric tables and exports sample

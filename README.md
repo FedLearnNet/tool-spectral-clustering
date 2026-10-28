@@ -1,4 +1,4 @@
-# tool-spectral-clustering
+# spectral-clustering
 
 Runs spectral clustering on numeric tables and exports sample labels and an interactive cluster visualization.
 
